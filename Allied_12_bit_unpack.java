@@ -24,7 +24,7 @@ public class Allied_12_bit_unpack implements PlugInFilter {
 		j = 0;
 		for (int index=0; index<bytes.length/3; index++) {
 			pixels[j++] = (short)((bytes[i]&0xff)*16 + ((bytes[i+1]&0xf)));
-			pixels[j++] = (short)((bytes[i+1]&0xf0) + (bytes[i+2]&0xff)*16);
+			pixels[j++] = (short)((bytes[i+1]&0xf0)/16 + (bytes[i+2]&0xff)*16);
 			i += 3;
 		}
 		ip.resetMinAndMax();
